@@ -332,9 +332,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: colorAccentLightFade,
+        backgroundColor: AppColors.white,
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 40, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
             children: [
               Row(
@@ -363,9 +363,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ))
                 ],
-              ),
-               SizedBox(
-                height: 30,
               ),
              /* Container(
                 padding: EdgeInsets.symmetric(horizontal: 17,vertical: 0),
@@ -405,9 +402,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),*/
-              SizedBox(
-                height: 10,
-              ),
               /*Expanded(
                   child:ListView.builder(
                     padding: const EdgeInsets.only(top: 10),
@@ -492,69 +486,113 @@ class _HomeScreenState extends State<HomeScreen> {
                   ))*/
               Expanded(
                   child:ListView.builder(
-                    padding: const EdgeInsets.only(top: 5),
+                    padding: const EdgeInsets.only(top: 10),
                     itemCount: _items.length,
                     itemBuilder: (context, index) {
                       final currentItem = _items[index];
-                      return _items.isEmpty ? Container(): Card(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        color: getRandomColor(),
-                        elevation: 1,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 5),
-                          child: ListTile(
-                            onTap: () async{
-                              _showEdit(context, currentItem['key']);
-                            },
-                      /*      onTap: () async {
-                              _showEdit(context, currentItem["key"]);
-                              final result = await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      EditScreen(note: filteredNotes[index]),
+                      return _items.isEmpty ? Center(
+                        child: Text('Empty',
+                          style: getTextStyle(15, FontWeight.normal, AppColors.black),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,),
+                      ): GestureDetector(
+                        onTap: (){
+                          _showEdit(context, currentItem['key']);
+                        },
+                        child: Card(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          //color: getRandomColor(),
+                          elevation: 1,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5.0),
+                                    bottomRight: Radius.circular(0.0),
+                                    bottomLeft: Radius.circular(0.0),
+                                    topLeft: Radius.circular(5.0),
+                                  ),
+                                  color: AppColors.colorPest,
                                 ),
-                              );
-                            },*/
-
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(currentItem["title"],
-                                  maxLines: 1,
-                                  style:getTextStyle(
-                                    20, FontWeight.w500,
-                                    colorBlack),),
-                                Text(currentItem["content"].toString(),
-                                  style: getTextStyle(
-                                      12, FontWeight.normal,
-                                      Colors.black),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,),
-                                Divider(thickness: 1, color: Color(0xffBCCCCCC)),
-                                Text(
-                                  'Edited: ${currentItem["noteDate"]}',
-                                  style: getTextStyle(
-                                      10, FontWeight.normal,
-                                      tabBg),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Flexible(
+                                      child: Text(currentItem["title"],
+                                        style: getTextStyle(15, FontWeight.normal, AppColors.ratingCountNumber),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () async {
+                                        final result = await confirmDialog(context);
+                                        if (result != null && result) {
+                                          deleteItem(currentItem['key']);
+                                          //deleteNote(index);
+                                        }
+                                      },
+                                      icon: const Icon(
+                                        Icons.delete_outline_rounded,
+                                        color: AppColors.white,
+                                        size: 24,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-
-                            trailing: IconButton(
-                              onPressed: () async {
-                                final result = await confirmDialog(context);
-                                if (result != null && result) {
-                                  deleteItem(currentItem['key']);
-                                  //deleteNote(index);
-                                }
-                              },
-                              icon: const Icon(
-                                Icons.delete,
                               ),
-                            ),
+                              Container(
+                                width: double.infinity,
+                                height: MediaQuery.of(context).size.height / 9,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(0.0),
+                                    bottomLeft: Radius.circular(0.0),
+                                    topLeft: Radius.circular(0.0),
+                                  ),
+                                  //border: Border.all(color: AppColors.greenButton),
+                                  color: getRandomColor(),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10.0,bottom: 5,left: 10,right: 10),
+                                  child: Text(
+                                      currentItem["content"].toString(),
+                                      maxLines: 3,
+                                      style: getTextStyle(
+                                          13,
+                                          FontWeight.normal,
+                                          AppColors.black)
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(5.0),
+                                    bottomLeft: Radius.circular(5.0),
+                                    topLeft: Radius.circular(0.0),
+                                  ),
+                                  color: Color(0xFFE6F9FF),
+                                ),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Edited: ${currentItem["noteDate"]}',
+                                    style: getTextStyle(
+                                        10, FontWeight.normal,
+                                        tabBg),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       );

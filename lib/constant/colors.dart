@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<Color> backgroundColors = [
+List<Color> randomBackgroundColors = [
   const Color(0xFFCCE5FF), // light blue
   const Color(0xFFD7F9E9), // pale green
   //const Color(0xFFFFF8E1), // pale yellow
@@ -8,68 +8,33 @@ List<Color> backgroundColors = [
   //const Color(0xFFFFD6D6), // light pink
   //const Color(0xFFE5E5E5), // light grey
   //const Color(0xFFFFF0F0), // pale pink
-  //const Color(0xFFE6F9FF), // pale blue
-  //const Color(0xFFD4EDDA), // mint green
-  //const Color(0xFFFFF3CD), // pale orange
+  const Color(0xFFE6F9FF), // pale blue
+  const Color(0xFFD4EDDA), // mint green
+  const Color(0xFFFFF3CD), // pale orange
 ];
 
-var colorAccent = Color(0xffEC4615);
-var orangeCream = Color(0x36ffbc9c);
-var red = Color(0xffB20B1C);
-var colorPrimary = Color(0xff1cd49c);
-var colorPest = Color(0xff4BCDE1);
-var colorPestLight = Color(0xffCEF8FF);
-var lightGreen = Color(0xffD3F6DB);
-var colorPrimaryDark = Color(0xff037946);
-var colorGreenButton = Color(0xc834bd82);
-var colorGreen= Color(0xda2ba76f);
-var tabBg = Color(0xff093787);
-var colorAccentLight = Color(0xffFD7623);
-var colorAccentLightFade = Color(0xfffcf9f8);
-var colorAccentFade = Color(0xffe1ceff);
-var colorCream = Color(0xffffd9ce);
-var colorBlack = Color(0xff101010);
-var colorBG= Color(0xFFFFF6F6);
-var colorAsh = Color(0xff888888);
-var colorGrayDeep = Color(0xff727272);
-var colorGrayText = Color(0xff989797);
-var colorGrayLine = Color(0xffACAAAA);
-var colorGrayT = Color(0xff6F6F6F);
-var colorGray = Color(0xffF4F5F9);
-var colorTransparent = Color(0xffF4F5F9).withOpacity(0.0);
-var colorLightBg = Color(0xffF4F5F9);
-var colorTextFormButtons = Color(0xff888888);
-var ashColorBackground = Color(0xffF5F5F5);
-var commentTextColor = Color(0xff848484);
-var greyTextColor = Color(0xff6D6B6B);
-var greyText = Color(0xffD6D6D6);
-var tabTextColor = Color(0xff3A3A3B);
-var boxColor = Color(0xff387E62);
-var titleColor = Color(0xFF4A0A0B);
-
 class AppColors {
-
   AppColors._privateConstructor();
   static final AppColors _instance = AppColors._privateConstructor();
   static AppColors get instance => _instance;
 
-  static const colorBackGround= Color(0xFF2E2121);
-  static const colorDot= Color(0xFFD9D9D9);
-  static const ratingCountNumber= Color(0xFF4A4A4A);
-  static const brownBorderColor= Color(0xFF7E1416);
-  static const AshBackGround= Color(0xFFEEEEEE);
-  static const splashText= Color(0xFF7C7C7C);
-  static const splashTextBlack= Color(0xFF292929);
-  static const textFieldBackGround= Color(0xFFE6E6E6);
-  static const hintTextColor= Color(0xFFB0B0B0);
-  static const whiteTextColor= Color(0xFFFFFFFF);
-  static const yellowTextColor= Color(0xFFFCB717);
-  static const bgTextColor= Color(0xFF016698);
-  static const boxBgColor= Color(0xFFF4F1EB);
-  static const circleBgColor= Color(0xFFD1BEFC);
-  static const boxColor= Color(0xFFFAE8DC);
-  static const circleTextColor= Color(0xFF4A0A0B);
-  static const circleRightColor= Color(0xFF303030);
+  static const colorBackGround = Color(0xFF2E2121);
+  static const colorDot = Color(0xFFD9D9D9);
+  static const ratingCountNumber = Color(0xFF4A4A4A);
+  static const brownBorderColor = Color(0xFF7E1416);
+  static const AshBackGround = Color(0xFFEEEEEE);
+  static const splashText = Color(0xFF7C7C7C);
+  static const splashTextBlack = Color(0xFF292929);
+  static const textFieldBackGround = Color(0xFFE6E6E6);
+  static const hintTextColor = Color(0xFFB0B0B0);
+  static const whiteTextColor = Color(0xFFFFFFFF);
+  static const yellowTextColor = Color(0xFFFCB717);
+  static const bgTextColor = Color(0xFF016698);
+  static const boxBgColor = Color(0xFFF4F1EB);
+  static const circleBgColor = Color(0xFFD1BEFC);
+  static const boxColor = Color(0xFFFAE8DC);
+  static const circleTextColor = Color(0xFF4A0A0B);
+  static const circleRightColor = Color(0xFF303030);
   static const colorPrimaryLight = Color(0xFF00C4D4);
   static const black = Color(0xFF222222);
   static const white = Color(0xFFFFFFFF);

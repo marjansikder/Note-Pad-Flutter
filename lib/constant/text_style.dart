@@ -1,63 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'colors.dart';
 
 String FONT_NAME = 'Hind Siliguri';
 String FONT_NAME2 = 'arial';
 
-
-TextStyle getTextStyle1(double sized,FontWeight? weight,Color? color){
+TextStyle getTextStyle1(double sized, FontWeight? weight, Color? color) {
   return GoogleFonts.hindSiliguri(
     fontSize: sized,
-    fontWeight: weight == null?FontWeight.normal:weight,
-    color: color == null?Colors.black:color,
-
+    fontWeight: weight ?? FontWeight.normal,
+    color: color ?? Colors.black,
   );
 }
-TextStyle getTextStyleBarlow(double sized,FontWeight? weight,Color? color){
+
+TextStyle getTextStyleBarlow(double sized, FontWeight? weight, Color? color) {
   return GoogleFonts.barlow(
     fontSize: sized,
-    fontWeight: weight == null?FontWeight.normal:weight,
-    color: color == null?Colors.black:color,
-
+    fontWeight: weight ?? FontWeight.normal,
+    color: color ?? Colors.black,
   );
 }
 
-TextStyle getTextStyleNotoSans(double sized,FontWeight? weight,Color? color){
+TextStyle getTextStyleNotoSans(double sized, FontWeight? weight, Color? color) {
   return GoogleFonts.firaSans(
     fontSize: sized,
-    fontWeight: weight == null?FontWeight.normal:weight,
-    color: color == null?Colors.black:color,
-
+    fontWeight: weight ?? FontWeight.normal,
+    color: color ?? Colors.black,
   );
 }
 
-TextStyle getTextStyle2(double sized,FontWeight? weight,Color? color){
+TextStyle getTextStyle2(double sized, FontWeight? weight, Color? color) {
   return GoogleFonts.notoSans(
     fontSize: sized,
-    fontWeight: weight == null?FontWeight.normal:weight,
-    color: color == null?Colors.black:color,
+    fontWeight: weight ?? FontWeight.normal,
+    color: color ?? Colors.black,
   );
 }
 
-TextStyle getTextStyleTab(double sized,FontWeight? weight){
+TextStyle getTextStyleTab(double sized, FontWeight? weight) {
   return GoogleFonts.notoSans(
     fontSize: sized,
-    fontWeight: weight == null?FontWeight.normal:weight,
+    fontWeight: weight ?? FontWeight.normal,
   );
 }
 
-TextStyle getTextStyle(double sized,FontWeight? weight,Color? color){
+TextStyle getTextStyle(double sized, FontWeight? weight, Color? color) {
   return TextStyle(
       fontFamily: FONT_NAME,
       fontSize: sized,
-      fontWeight: weight == null?FontWeight.normal:weight,
-      color: color == null?Colors.black:color,
-      height: 1.5
-  );
+      fontWeight: weight ?? FontWeight.normal,
+      color: color ?? Colors.black,
+      height: 1.5);
 }
 
-BoxDecoration getBoxDecorations(Color color,double radius){
+BoxDecoration getBoxDecorations(Color color, double radius) {
   return BoxDecoration(
     color: color,
     borderRadius: BorderRadius.only(
